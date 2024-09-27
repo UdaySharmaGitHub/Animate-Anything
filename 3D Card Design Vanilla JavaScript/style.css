@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+:root{
+  --main-bg :#000;
+  --box-bg:#232323;
+  --name-color : #f8f8f8;
+  --card-bg-text :#ffffff;
+  --box-shodow:#fff;
+  --transition: all 0.5s ease;
+
+}
+.white:root{
+    --main-bg :#f8f8f8;
+    --box-bg:#ffffff;
+    --name-color : #232323;
+    --card-bg-text :#343434;
+    --box-shodow:#000;
+  }
+body{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+    background-color: var(--main-bg);
+}
+.container{
+    display: flex;
+    flex:1;
+    justify-content: center;
+    align-items:center;
+    flex-wrap: wrap;
+    gap: 50px;
+    padding: 5dvh 0px;
+    max-width: 1400px;
+}
+.box{
+    height: 400px;
+    width: 380px;
+    border-radius: 30px;
+    position: relative;
+    background-color: var(--box-bg);
+    box-shadow: 0px 5px 10px var(--box-shodow);
+    transform-style: preserve-3d;
+}
+
+.box::before{
+    content: "Nike";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--card-bg-text);
+    font-size: 6em;
+    font-weight: 900;
+    font-style: italic;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.box::after{
+    content: "Shoes";
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: var(--card-bg-text);
+    font-size: 4.5em;
+    font-weight: 900;
+    font-style: italic;
+    opacity: 0;
+    transition: var(--transition);
+}
+.box:hover::after , .box:hover::before{
+    opacity: 0.1;
+}
+.product{
+    max-width: 380px;
+}
+h2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    font-weight: 900;
+    font-size: 30px;
+    color: var(--name-color);
+    transition: var(--transition);
+    transform: translateZ(75px);
+    opacity: 0;
+}
+.box:hover h2{
+    top: 40px;
+    opacity: 1;
+}
+.buyNow{
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+    padding: 10px 25px;
+    color: white;
+    font-weight: 700;
+    background-color: var(--bgcolor);
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    transition: var(--transition);
+    transform: translateZ(75px);
+    opacity: 0;
+}
+.box:hover .buyNow{
+    opacity: 1;
+    bottom: 30px;
+}
+.circle{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    opacity: 0.5;
+    left: 50%;
+    background-color: var(--bgcolor);
+    transition: var(--transition);
+    transform: translate3d(-50%,-50%,0);
+}
+.box:hover .circle{
+    transform: translate3d(-50%,-50%,40px);
+    opacity: 0.8;
+}
+.product{
+    max-width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    filter: drop-shadow(0px 0px 5px #000);
+    transition: var(--transition);
+    transform: translate3d(-50%,-50%,0);
+}
+.box:hover .product{
+    transform: translate3d(-50%,-50%,100px) rotateZ(-15deg) scale(1.1);
+    filter: drop-shadow(0px 0px 10px #000);
+}
+.toggleTHEME{
+    height: 40px;
+    position: absolute;
+    top: 10%;
+    left:90%;
+}
+.mode-switch{
+    fill: white;
+    stroke: white;
+    stroke-width: 0.5px;
+    cursor: pointer;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.mode-switch.active{
+fill: #333;
+stroke: #333;
+}
